@@ -1,0 +1,67 @@
+def log2(a):
+    return log(a)/log(2)
+
+
+
+a=open("T1.txt", "r")
+s=a.read().lower()
+s1=s.replace(",", "").replace(".", "").replace(" ", "").replace("-", "").replace("\'", "")\
+    .replace("\"", "").replace(";", ""). replace(":", "").replace("?", "").replace("!", "")\
+    .replace("«", "").replace("»", "").replace("—", "")
+i=0
+x=[]
+for i in range(1072, 1106):
+    x.append((chr(i), s.count(chr(i))))
+x.remove((chr(1104), 0))
+n1=len(s1)
+n=len(s)
+ent=0
+for i in x:
+    p=i.__getitem__(1)/n1
+    if p!=0:
+        ent+=p*log2(p)
+ent=-ent
+print(ent)
+ent1=0
+f=['.',',',':',';','\'','\"','!','?',' ']
+for i in f:
+    if s.count(i)!=0:
+        x.append((i, s.count(i)))
+for i in x:
+    p=i.__getitem__(1)/n
+    if p!=0:
+        ent1+=p*log2(p)
+ent1=-ent1
+print(ent1)
+print(ent/ent1)
+a=open("T2.txt", "r")
+s=a.read().lower()
+s1=s.replace(",", "").replace(".", "").replace(" ", "").replace("-", "").replace("\'", "")\
+    .replace("\"", "").replace(";", ""). replace(":", "").replace("?", "").replace("!", "")\
+    .replace("«", "").replace("»", "").replace("—", "")
+i=0
+x=[]
+for i in range(1072, 1106):
+    x.append((chr(i), s.count(chr(i))))
+x.remove((chr(1104), 0))
+n1=len(s1)
+n=len(s)
+ent=0
+for i in x:
+    p=i.__getitem__(1)/n1
+    if p!=0:
+        ent+=p*log2(p)
+ent=-ent
+print(ent)
+ent1=0
+f=['.',',',':',';','\'','\"','!','?',' ']
+for i in f:
+    if s.count(i)!=0:
+        x.append((i, s.count(i)))
+for i in x:
+    p=i.__getitem__(1)/n
+    if p!=0:
+        ent1+=p*log2(p)
+ent1=-ent1
+print(ent1)
+print(ent/ent1)
